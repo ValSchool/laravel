@@ -1,0 +1,13 @@
+use Illuminate\Support\Facades\DB;
+
+class Controller extends Controller
+{
+    public function getPlanets()
+    {
+        $planets = DB::table('planets')->get();
+        return view('planets.index', ['planets' => $planets]);
+    }
+}
+
+
+Route::get('/planets', 'controller@getPlanets');
