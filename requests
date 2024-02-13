@@ -1,0 +1,22 @@
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller;
+
+Route::get('/planets', function () {
+    $planets = [
+        "Uranus",
+        "Jupiter",
+        "Mars",
+        "Earth",
+        "Saturn",
+        "Pluto",
+        "Neptune",
+        "Venus",
+    ];
+
+    return view('planets.index', ['planets' => $planets]);
+});
+
+Route::get('/planets/{planet}', function ($planet) {
+    return view('planets.show', ['planet' => $planet]);
+});
